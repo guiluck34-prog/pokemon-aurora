@@ -14,7 +14,7 @@ const CONFIG = {
         aurora: 29.99
     },
 
-    // Conversão de referência.
+    // Conversão de referência
     // O checkout real deve usar a cotação atual.
     exchange: {
         EUR: 1,
@@ -23,6 +23,7 @@ const CONFIG = {
     },
 
     // Estimativa apenas para apresentação.
+    // As taxas reais dependem do método de pagamento.
     paymentFee: {
         percentage: 0.015,
         fixedEUR: 0.25
@@ -35,6 +36,84 @@ const CONFIG = {
    TRADUÇÕES
 ===================================================== */
 
+const TRANSLATIONS = {
+
+    pt: {
+
+        nav_game: "Jogo",
+        nav_map: "Mapa",
+        nav_pokedex: "Pokédex",
+        nav_shop: "VIP",
+        nav_pass: "Battle Pass",
+
+        login: "Entrar com Roblox",
+
+        online: "● SERVIDOR ONLINE",
+
+        hero_title_1: "POKÉMON",
+        hero_title_2: "AURORA",
+
+        hero_description:
+            "Explora uma nova região, captura Pokémon, enfrenta treinadores e torna-te Campeão.",
+
+        play_now: "Jogar agora",
+        explore: "Explorar o mundo",
+
+        players: "Jogadores",
+        pokemon: "Pokémon",
+        gyms: "Ginásios",
+
+        game_label: "A EXPERIÊNCIA",
+
+        game_title: "Uma nova aventura começa aqui.",
+
+        game_description:
+            "Explora cidades, rotas, cavernas e lugares secretos enquanto constróis a tua equipa.",
+
+        feature_explore: "Explora",
+        feature_explore_text:
+            "Descobre uma região cheia de cidades, rotas, cavernas e segredos.",
+
+        feature_battle: "Combate",
+        feature_battle_text:
+            "Enfrenta treinadores, líderes de ginásio e outros jogadores.",
+
+        feature_collect: "Coleciona",
+        feature_collect_text:
+            "Captura Pokémon, encontra shinies e completa a tua Pokédex.",
+
+        map_label: "A REGIÃO",
+        map_title: "A Região Aurora",
+
+        map_text:
+            "Uma região enorme para explorar, com cidades, rotas, cavernas, ginásios e locais especiais.",
+
+        view_map: "Ver mapa",
+
+        pokedex_label: "POKÉDEX",
+        pokedex_title: "Apanha todos.",
+
+        pokedex_text:
+            "Descobre Pokémon comuns, raros, lendários e variantes especiais.",
+
+        view_pokedex: "Abrir Pokédex",
+
+        shop_label: "LOJA",
+        shop_title: "Escolhe o teu VIP.",
+        shop_text:
+            "Apoia o projeto e desbloqueia vantagens exclusivas dentro do Pokémon Aurora.",
+
+        buy: "Comprar",
+
+        bronze: "VIP BRONZE",
+        silver: "VIP SILVER",
+        gold: "VIP GOLD",
+        diamond: "VIP DIAMOND",
+        aurora: "VIP AURORA",
+
+        bronze_text: "Vantagens essenciais para começar.",
+        silver_text: "Mais benefícios para a tua aventura.",
+        gold_text: "Vantagens avanç
 const translations = {
 
     pt: {
