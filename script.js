@@ -1,11 +1,10 @@
 /* =====================================================
    POKÉMON AURORA
-   Sistema principal do site
+   SISTEMA PRINCIPAL DO SITE
 ===================================================== */
 
 const CONFIG = {
 
-    // Preços base em EUR
     vip: {
         bronze: 2.99,
         silver: 5.99,
@@ -14,16 +13,13 @@ const CONFIG = {
         aurora: 29.99
     },
 
-    // Conversão de referência
-    // O checkout real deve usar a cotação atual.
     exchange: {
         EUR: 1,
         BRL: 5.89,
         USD: 1.148
     },
 
-    // Estimativa apenas para apresentação.
-    // As taxas reais dependem do método de pagamento.
+    // ESTIMATIVA de taxa de pagamento
     paymentFee: {
         percentage: 0.015,
         fixedEUR: 0.25
@@ -35,6 +31,44 @@ const CONFIG = {
 /* =====================================================
    TRADUÇÕES
 ===================================================== */
+
+const translations = {
+
+    pt: {
+
+        nav_game: "Jogo",
+        nav_pokedex: "Pokédex",
+        nav_shop: "VIP",
+        nav_pass: "Battle Pass",
+
+        online: "● SERVIDOR ONLINE",
+
+        hero_description:
+            "Explora uma nova aventura, captura Pokémon, enfrenta treinadores e torna-te Campeão.",
+
+        play_now: "Jogar agora",
+        explore: "Explorar o mundo",
+
+        players: "Jogadores",
+        pokemon: "Pokémon",
+        gyms: "Ginásios",
+
+        game_label: "A EXPERIÊNCIA",
+        game_title: "Uma nova aventura começa aqui.",
+        game_description:
+            "Explora, captura Pokémon, enfrenta treinadores, conquista os 8 ginásios e prepara-te para a Liga.",
+
+        feature_world_title: "Explora",
+        feature_world_text:
+            "Descobre cidades, rotas, cavernas, segredos e diferentes áreas do mundo.",
+
+        feature_battle_title: "Combate",
+        feature_battle_text:
+            "Enfrenta Pokémon selvagens, treinadores, ginásios e outros jogadores.",
+
+        feature_champion_title: "Torna-te Campeão",
+        feature_champion_text:
+            "Conquista os 8 em===================================================== */
 
 const TRANSLATIONS = {
 
