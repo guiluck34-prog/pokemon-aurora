@@ -72,12 +72,9 @@ export async function onRequestGet(context) {
           grant_type: "authorization_code",
           code,
           client_id: context.env.ROBLOX_CLIENT_ID,
-          client_secret:
-            context.env.ROBLOX_CLIENT_SECRET,
-          redirect_uri:
-            context.env.ROBLOX_REDIRECT_URI,
-          code_verifier:
-            oauthData.code_verifier
+          client_secret: context.env.ROBLOX_CLIENT_SECRET,
+          redirect_uri: context.env.ROBLOX_REDIRECT_URI,
+          code_verifier: oauthData.code_verifier
         })
       }
     );
@@ -100,4 +97,128 @@ export async function onRequestGet(context) {
       );
     }
 
-    const userResponse = await
+    const userResponse = await fetch(
+      "https://apis.roblox.com/oauth/v1/userinfo",
+      {
+        headers: {
+          Authorization:
+            `Bearer ${tokens.access_token}`
+        }
+      }
+    );
+
+    const userText = await userResponse.text();
+
+    if (!userResponse.ok) {
+      return new Response(
+        `Roblox userinfo error: ${userText}`,
+        { status: 400 }
+      );
+    }
+
+    const user = JSON.parse(userText);
+
+    if (!user.sub) {
+      return new Response(
+        "O Roblox não devolveu o ID do utilizador.",
+        { status: 400 }
+      );
+    }
+
+    const now = new Date().toISOString();
+
+    await context.env.DB
+      .prepare(`
+        INSERT INTO users (
+          roblox_id,
+          username,
+          display_name,
+          avatar_url,
+          created_at,
+          updated_at
+        )
+        VALUES (?, ?, ?, ?, ?, ?)
+        ON CONFLICT(roblox_id)
+        DO UPDATE SET
+          username = excluded.username,
+          display_name = excluded.display_name,
+          avatar_url = excluded.avatar_url,
+          updated_at = excluded.updated_at
+      `)
+      .bind(
+        user.sub,
+        user.preferred_username ||
+          user.name ||
+          "Roblox",
+        user.name ||
+          user.preferred_username ||
+          "Roblox",
+        user.picture || "",
+        now,
+        now
+      )
+      .run();
+
+    const dbUser = await context.env.DB
+      .prepare(
+        "SELECT id FROM users WHERE roblox_id = ?"
+      )
+      .bind(user.sub)
+      .first();
+
+    if (!dbUser) {
+      return new Response(
+        "Utilizador não encontrado na base de dados.",
+        { status: 500 }
+      );
+    }
+
+    const sessionId = crypto.randomUUID();
+
+    const expiresAt =
+      Date.now() + 1000 * 60 * 60 * 24 * 7;
+
+    await context.env.DB
+      .prepare(`
+        INSERT INTO sessions (
+          id,
+          user_id,
+          expires_at
+        )
+        VALUES (?, ?, ?)
+      `)
+      .bind(
+        sessionId,
+        dbUser.id,
+        expiresAt
+      )
+      .run();
+
+    const headers = new Headers();
+
+    headers.set("Location", "/");
+
+    headers.append(
+      "Set-Cookie",
+      `aurora_session=${sessionId}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=604800`
+    );
+
+    headers.append(
+      "Set-Cookie",
+      "aurora_oauth=; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=0"
+    );
+
+    return new Response(null, {
+      status: 302,
+      headers
+    });
+
+  } catch (error) {
+
+    return new Response(
+      `Erro interno no callback: ${error?.message || error}`,
+      { status: 500 }
+    );
+
+  }
+         }
