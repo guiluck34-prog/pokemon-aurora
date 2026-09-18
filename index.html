@@ -1,40 +1,148 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
-
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Pokémon Aurora</title>
 
-    <meta
-        name="description"
-        content="Pokémon Aurora — Explora. Combate. Torna-te Campeão."
-    >
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- =========================
+<!-- =====================================================
      NAVBAR
-========================= -->
+===================================================== -->
 
 <header class="navbar">
 
-    <div class="logo">
+    <a href="#home" class="logo">
         <span>POKÉMON</span>
         <strong>AURORA</strong>
-    </div>
+    </a>
 
-    <nav id="navMenu">
+    <nav id="mainNav">
 
-        <a href="#inicio" data-i18n="navHome">
-            Início
+        <a href="#game" data-i18n="nav_game">Jogo</a>
+
+        <a href="#pokedex" data-i18n="nav_pokedex">
+            Pokédex
         </a>
 
-        <a href="#jogo" data-i18n="navGame">
+        <a href="#shop" data-i18n="nav_shop">
+            VIP
+        </a>
+
+        <a href="#battlepass" data-i18n="nav_pass">
+            Battle Pass
+        </a>
+
+    </nav>
+
+    <div class="nav-actions">
+
+        <button
+            id="languageButton"
+            class="small-button">
+            🇵🇹 PT
+        </button>
+
+        <button
+            id="currencyButton"
+            class="small-button">
+            € EUR
+        </button>
+
+        <button
+            id="loginButton"
+            class="login-button">
+            Entrar com Roblox
+        </button>
+
+        <button
+            id="mobileMenuButton"
+            class="mobile-menu-button">
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main>
+
+<section id="home" class="hero">
+
+    <div class="hero-background"></div>
+
+    <div class="hero-content">
+
+        <span class="online" data-i18n="online">
+            ● SERVIDOR ONLINE
+        </span>
+
+        <h1>
+            <span>POKÉMON</span>
+            <br>
+            AURORA
+        </h1>
+
+        <p data-i18n="hero_description">
+            Explora uma nova aventura, captura Pokémon,
+            enfrenta treinadores e torna-te Campeão.
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                id="playButton"
+                class="primary-button"
+                data-i18n="play_now">
+                Jogar agora
+            </button>
+
+            <a
+                href="#game"
+                class="secondary-button"
+                data-i18n="explore">
+                Explorar o mundo
+            </a>
+
+        </div>
+
+        <div class="stats">
+
+            <div>
+                <strong>∞</strong>
+
+                <span data-i18n="players">
+                    Jogadores
+                </span>
+            </div>
+
+            <div>
+                <strong>1000+</strong>
+
+                <span data-i18n="pokemon">
+                    Pokémon
+                </span>
+            </div>
+
+            <div>
+                <strong>8</strong>
+
+                <span data-i18n="gyms">
+                    Ginásios
+                </span>
+            </div>
+
+        </div        <a href="#jogo" data-i18n="navGame">
             Jogo
         </a>
 
