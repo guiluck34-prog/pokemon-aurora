@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Pokémon Aurora</title>
 
@@ -11,955 +16,92 @@
 
 <body>
 
-<!-- =====================================================
-     NAVBAR
-===================================================== -->
+    <!-- =========================
+         NAVBAR
+    ========================== -->
 
-<header class="navbar">
+    <header class="navbar">
 
-    <a href="#home" class="logo">
-        <span>POKÉMON</span>
-        <strong>AURORA</strong>
-    </a>
-
-    <nav id="mainNav">
-
-        <a href="#game" data-i18n="nav_game">Jogo</a>
-
-        <a href="#pokedex" data-i18n="nav_pokedex">
-            Pokédex
-        </a>
-
-        <a href="#shop" data-i18n="nav_shop">
-            VIP
-        </a>
-
-        <a href="#battlepass" data-i18n="nav_pass">
-            Battle Pass
-        </a>
-
-    </nav>
-
-    <div class="nav-actions">
-
-        <button
-            id="languageButton"
-            class="small-button">
-            🇵🇹 PT
-        </button>
-
-        <button
-            id="currencyButton"
-            class="small-button">
-            € EUR
-        </button>
-
-        <button
-            id="loginButton"
-            class="login-button">
-            Entrar com Roblox
-        </button>
-
-        <button
-            id="mobileMenuButton"
-            class="mobile-menu-button">
-            ☰
-        </button>
-
-    </div>
-
-</header>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<main>
-
-<section id="home" class="hero">
-
-    <div class="hero-background"></div>
-
-    <div class="hero-content">
-
-        <span class="online" data-i18n="online">
-            ● SERVIDOR ONLINE
-        </span>
-
-        <h1>
+        <a href="#home" class="logo">
             <span>POKÉMON</span>
-            <br>
-            AURORA
-        </h1>
+            <strong>AURORA</strong>
+        </a>
 
-        <p data-i18n="hero_description">
-            Explora uma nova aventura, captura Pokémon,
-            enfrenta treinadores e torna-te Campeão.
-        </p>
+        <nav id="mainNav">
 
-        <div class="hero-buttons">
+            <a href="#home" data-i18n="nav_home">
+                Início
+            </a>
+
+            <a href="#game" data-i18n="nav_game">
+                Jogo
+            </a>
+
+            <a href="#pokedex" data-i18n="nav_pokedex">
+                Pokédex
+            </a>
+
+            <a href="#shop" data-i18n="nav_shop">
+                Loja
+            </a>
+
+            <a href="#battlepass" data-i18n="nav_pass">
+                Battle Pass
+            </a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <!-- IDIOMA -->
 
             <button
-                id="playButton"
-                class="primary-button"
-                data-i18n="play_now">
-                Jogar agora
+                id="languageButton"
+                class="small-button"
+                type="button"
+            >
+                🇵🇹 PT
             </button>
 
-            <a
-                href="#game"
-                class="secondary-button"
-                data-i18n="explore">
-                Explorar o mundo
-            </a>
+            <!-- MOEDA -->
 
-        </div>
+            <button
+                id="currencyButton"
+                class="small-button"
+                type="button"
+            >
+                € EUR
+            </button>
 
-        <div class="stats">
+            <!-- ROBLOX -->
 
-            <div>
-                <strong>∞</strong>
-
-                <span data-i18n="players">
-                    Jogadores
-                </span>
-            </div>
-
-            <div>
-                <strong>1000+</strong>
-
-                <span data-i18n="pokemon">
-                    Pokémon
-                </span>
-            </div>
-
-            <div>
-                <strong>8</strong>
-
-                <span data-i18n="gyms">
-                    Ginásios
-                </span>
-            </div>
-
-        </div        <a href="#jogo" data-i18n="navGame">
-            Jogo
-        </a>
-
-        <a href="#pokedex" data-i18n="navDex">
-            Pokédex
-        </a>
-
-        <a href="#loja" data-i18n="navShop">
-            Loja
-        </a>
-
-        <a href="#battlepass" data-i18n="navPass">
-            Battle Pass
-        </a>
-
-    </nav>
-
-    <div class="nav-actions">
-
-        <button
-            id="languageButton"
-            class="small-button"
-            onclick="toggleLanguage()"
-        >
-            🇵🇹 PT
-        </button>
-
-        <button
-            id="currencyButton"
-            class="small-button"
-            onclick="
-                setCurrency(
-                    currentCurrency === 'EUR'
-                        ? 'BRL'
-                        : currentCurrency === 'BRL'
-                            ? 'USD'
-                            : 'EUR'
-                )
-            "
-        >
-            € EUR
-        </button>
-
-        <button
-            class="login-button"
-            onclick="loginRoblox()"
-        >
-            🎮 <span data-i18n="login">
+            <button
+                id="loginButton"
+                class="login-button"
+                type="button"
+                data-i18n="login"
+            >
                 Entrar com Roblox
-            </span>
-        </button>
+            </button>
 
-    </div>
+            <!-- MENU MOBILE -->
 
-    <button
-        class="mobile-menu-button"
-        onclick="toggleMenu()"
-    >
-        ☰
-    </button>
-
-</header>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section
-    id="inicio"
-    class="hero"
->
-
-    <div class="hero-background"></div>
-
-    <div class="hero-content">
-
-        <div
-            class="online"
-            data-i18n="online"
-        >
-            ● SERVIDOR ONLINE
-        </div>
-
-        <h1 data-i18n="heroTitle">
-            POKÉMON<br>
-            <span>AURORA</span>
-        </h1>
-
-        <p data-i18n="heroText">
-            Explora. Combate. Torna-te Campeão.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a
-                href="#jogo"
-                class="primary-button"
-                data-i18n="explore"
+            <button
+                id="mobileMenuButton"
+                class="mobile-menu-button"
+                type="button"
+                aria-label="Abrir menu"
             >
-                EXPLORAR O JOGO
-            </a>
-
-            <a
-                href="#loja"
-                class="secondary-button"
-                data-i18n="shop"
-            >
-                VER LOJA
-            </a>
+                ☰
+            </button>
 
         </div>
 
-        <div class="stats">
+    </header>
 
-            <div>
-                <strong>8</strong>
-                <span data-i18n="gyms">
-                    Ginásios
-                </span>
-            </div>
 
-            <div>
-                <strong>4</strong>
-                <span data-i18n="modes">
-                    Modos
-                </span>
-            </div>
+    <!-- =========================
+         CONTEÚDO
+    ========================== -->
 
-            <div>
-                <strong>100</strong>
-                <span data-i18n="maxLevel">
-                    Nível máximo
-                </span>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     JOGO
-========================= -->
-
-<section
-    id="jogo"
-    class="section"
->
-
-    <div class="section-title">
-
-        <span data-i18n="world">
-            O MUNDO
-        </span>
-
-        <h2 data-i18n="exploreAurora">
-            Explora Aurora
-        </h2>
-
-        <p data-i18n="worldText">
-            Uma região cheia de cidades, cavernas,
-            treinadores, ginásios e segredos para descobrir.
-        </p>
-
-    </div>
-
-
-    <div class="features">
-
-        <div class="feature-card">
-
-            <div class="feature-icon">
-                🗺️
-            </div>
-
-            <h3 data-i18n="exploreTitle">
-                Explora
-            </h3>
-
-            <p data-i18n="exploreText">
-                Viaja por cidades, rotas,
-                cavernas e locais especiais.
-            </p>
-
-        </div>
-
-
-        <div class="feature-card">
-
-            <div class="feature-icon">
-                ⚔️
-            </div>
-
-            <h3 data-i18n="battleTitle">
-                Combate
-            </h3>
-
-            <p data-i18n="battleText">
-                Luta contra treinadores
-                e conquista os 8 Ginásios.
-            </p>
-
-        </div>
-
-
-        <div class="feature-card">
-
-            <div class="feature-icon">
-                ✨
-            </div>
-
-            <h3 data-i18n="rareTitle">
-                Pokémon Raros
-            </h3>
-
-            <p data-i18n="rareText">
-                Encontra Pokémon raros,
-                shiny e criaturas especiais.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     MAPA
-========================= -->
-
-<section class="map-section">
-
-    <div class="map-box">
-
-        <div class="map-content">
-
-            <span data-i18n="region">
-                REGIÃO AURORA
-            </span>
-
-            <h2 data-i18n="pathTitle">
-                O teu caminho começa aqui.
-            </h2>
-
-            <p data-i18n="pathText">
-                Começa em Lumen Town e percorre
-                a região até chegares ao desafio final.
-            </p>
-
-            <a
-                href="#pokedex"
-                class="primary-button"
-                data-i18n="viewDex"
-            >
-                VER POKÉDEX
-            </a>
-
-        </div>
-
-        <div class="fake-map">
-
-            <div class="map-dot dot1">L</div>
-            <div class="map-dot dot2">M</div>
-            <div class="map-dot dot3">V</div>
-            <div class="map-dot dot4">N</div>
-            <div class="map-dot dot5">A</div>
-            <div class="map-dot dot6">D</div>
-
-            <div class="map-line line1"></div>
-            <div class="map-line line2"></div>
-            <div class="map-line line3"></div>
-            <div class="map-line line4"></div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     POKÉDEX
-========================= -->
-
-<section
-    id="pokedex"
-    class="section dark-section"
->
-
-    <div class="section-title">
-
-        <span data-i18n="database">
-            DATABASE
-        </span>
-
-        <h2 data-i18n="pokedex">
-            Pokédex
-        </h2>
-
-        <p data-i18n="dexText">
-            Consulta os Pokémon descobertos
-            na região de Aurora.
-        </p>
-
-    </div>
-
-
-    <div class="pokemon-preview">
-
-        <div class="pokemon-card">
-            <div class="pokemon-number">
-                #001
-            </div>
-
-            <div class="pokemon-image">
-                🌱
-            </div>
-
-            <h3>
-                Aurorapup
-            </h3>
-
-            <span>
-                GRASS
-            </span>
-        </div>
-
-
-        <div class="pokemon-card">
-            <div class="pokemon-number">
-                #002
-            </div>
-
-            <div class="pokemon-image">
-                🔥
-            </div>
-
-            <h3>
-                Emberon
-            </h3>
-
-            <span>
-                FIRE
-            </span>
-        </div>
-
-
-        <div class="pokemon-card">
-            <div class="pokemon-number">
-                #003
-            </div>
-
-            <div class="pokemon-image">
-                💧
-            </div>
-
-            <h3>
-                Aquava
-            </h3>
-
-            <span>
-                WATER
-            </span>
-        </div>
-
-    </div>
-
-
-    <div class="center-button">
-
-        <button
-            class="primary-button"
-            onclick="openPokedex()"
-            data-i18n="openDex"
-        >
-            ABRIR POKÉDEX
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     LOJA
-========================= -->
-
-<section
-    id="loja"
-    class="section shop-section"
->
-
-    <div class="section-title">
-
-        <span>
-            SHOP
-        </span>
-
-        <h2 data-i18n="shopTitle">
-            Loja Aurora
-        </h2>
-
-        <p data-i18n="shopText">
-            Escolhe o teu nível VIP
-            e recebe benefícios exclusivos.
-        </p>
-
-    </div>
-
-
-    <div class="vip-grid">
-
-
-        <!-- BRONZE -->
-
-        <div
-            class="vip-card"
-            data-vip="bronze"
-        >
-
-            <div class="vip-icon">
-                🥉
-            </div
-            <div class="online">
-                ● SERVIDOR ONLINE
-            </div>
-
-            <h1>POKÉMON<br><span>AURORA</span></h1>
-
-            <p>
-                Explora. Combate. Torna-te Campeão.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#jogo" class="primary-btn">EXPLORAR O JOGO</a>
-                <a href="#loja" class="secondary-btn">VER LOJA</a>
-            </div>
-
-            <div class="stats">
-                <div>
-                    <strong>8</strong>
-                    <span>Ginásios</span>
-                </div>
-
-                <div>
-                    <strong>4</strong>
-                    <span>Modos</span>
-                </div>
-
-                <div>
-                    <strong>100</strong>
-                    <span>Nível máximo</span>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="hero-art">
-            <div class="aurora-ring ring1"></div>
-            <div class="aurora-ring ring2"></div>
-            <div class="aurora-orb"></div>
-
-            <div class="floating-card card1">⚡</div>
-            <div class="floating-card card2">🔥</div>
-            <div class="floating-card card3">🌿</div>
-        </div>
-
-    </section>
-
-
-    <!-- JOGO -->
-    <section id="jogo" class="section">
-
-        <div class="section-title">
-            <span>O MUNDO</span>
-            <h2>Explora Aurora</h2>
-            <p>
-                Uma região cheia de cidades, cavernas, treinadores,
-                ginásios e segredos para descobrir.
-            </p>
-        </div>
-
-        <div class="features">
-
-            <div class="feature-card">
-                <div class="icon">🌌</div>
-                <h3>Explora</h3>
-                <p>
-                    Viaja por cidades, rotas, cavernas e locais especiais.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="icon">⚔️</div>
-                <h3>Combate</h3>
-                <p>
-                    Luta contra treinadores e conquista os 8 Ginásios.
-                </p>
-            </div>
-
-            <div class="feature-card">
-                <div class="icon">✨</div>
-                <h3>Pokémon Raros</h3>
-                <p>
-                    Encontra Pokémon raros, shiny e criaturas especiais.
-                </p>
-            </div>
-
-        </div>
-
-
-        <div class="map-box">
-
-            <div class="map-info">
-                <span>REGIÃO AURORA</span>
-                <h3>O teu caminho começa aqui.</h3>
-
-                <p>
-                    Começa em Lumen Town e percorre a região
-                    até chegares ao desafio final.
-                </p>
-
-                <a href="#pokedex" class="primary-btn">
-                    VER POKÉDEX
-                </a>
-            </div>
-
-            <div class="map">
-                <div class="location location1">Lumen Town</div>
-                <div class="location location2">Maris City</div>
-                <div class="location location3">Aurora Peak</div>
-
-                <div class="map-line"></div>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- POKEDEX -->
-    <section id="pokedex" class="section dark-section">
-
-        <div class="section-title">
-            <span>DATABASE</span>
-            <h2>Pokédex</h2>
-
-            <p>
-                Consulta os Pokémon descobertos na região de Aurora.
-            </p>
-        </div>
-
-        <div class="pokemon-grid">
-
-            <div class="pokemon-card">
-                <div class="pokemon-img fire">🔥</div>
-                <h3>Emberling</h3>
-                <span>Fogo</span>
-            </div>
-
-            <div class="pokemon-card">
-                <div class="pokemon-img water">💧</div>
-                <h3>Aqualyn</h3>
-                <span>Água</span>
-            </div>
-
-            <div class="pokemon-card">
-                <div class="pokemon-img grass">🌿</div>
-                <h3>Florabit</h3>
-                <span>Planta</span>
-            </div>
-
-            <div class="pokemon-card">
-                <div class="pokemon-img electric">⚡</div>
-                <h3>Voltrix</h3>
-                                       <span>Pokémon</span>
-                    </div>
-                    <div>
-                        <strong>8</strong>
-                        <span>Ginásios</span>
-                    </div>
-                    <div>
-                        <strong>100</strong>
-                        <span>Nível máximo</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-visual">
-                <div class="aurora-ring ring-1"></div>
-                <div class="aurora-ring ring-2"></div>
-                <div class="aurora-orb">✦</div>
-
-                <div class="mountain mountain-back"></div>
-                <div class="mountain mountain-front"></div>
-
-                <div class="floating-card card-top">
-                    <span>✨</span>
-                    <div>
-                        <b>Nova descoberta!</b>
-                        <small>Pokémon raro encontrado</small>
-                    </div>
-                </div>
-
-                <div class="floating-card card-bottom">
-                    <span>⚔️</span>
-                    <div>
-                        <b>Batalha iniciada</b>
-                        <small>Prepara a tua equipa</small>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- FEATURES -->
-        <section class="section" id="jogo">
-            <div class="section-heading">
-                <span class="eyebrow">A TUA AVENTURA</span>
-                <h2>Explora. <span>Combate.</span> Evolui.</h2>
-                <p>
-                    Tudo o que precisas para começares a tua jornada na região Aurora.
-                </p>
-            </div>
-
-            <div class="feature-grid">
-
-                <article class="feature-card">
-                    <div class="feature-icon purple">✦</div>
-                    <h3>Explora a Aurora</h3>
-                    <p>
-                        Descobre cidades, rotas, cavernas e locais secretos
-                        enquanto avanças pela região.
-                    </p>
-                    <a href="#">Explorar →</a>
-                </article>
-
-                <article class="feature-card">
-                    <div class="feature-icon blue">⚔</div>
-                    <h3>Batalhas</h3>
-                    <p>
-                        Treina a tua equipa, enfrenta treinadores e conquista
-                        os 8 Ginásios da região.
-                    </p>
-                    <a href="#">Ver sistema →</a>
-                </article>
-
-                <article class="feature-card">
-                    <div class="feature-icon gold">★</div>
-                    <h3>Pokémon raros</h3>
-                    <p>
-                        Procura Pokémon raros, shinies e criaturas especiais
-                        escondidas pelo mundo.
-                    </p>
-                    <a href="#">Ver Pokédex →</a>
-                </article>
-
-            </div>
-        </section>
-
-
-        <!-- GAME -->
-        <section class="game-section">
-            <div class="game-info">
-                <span class="eyebrow">A REGIÃO AURORA</span>
-                <h2>Uma aventura<br><span>sem limites.</span></h2>
-
-                <p>
-                    Viaja por diferentes ambientes, enfrenta desafios,
-                    encontra novos Pokémon e cria a tua própria história.
-                </p>
-
-                <div class="check-list">
-                    <div>✓ 8 Ginásios</div>
-                    <div>✓ Elite e Campeão</div>
-                    <div>✓ Sistema de evolução</div>
-                    <div>✓ Mega, Dynamax e Terastal</div>
-                </div>
-
-                <button class="primary-btn">Descobrir o jogo</button>
-            </div>
-
-            <div class="game-map">
-                <div class="map-grid"></div>
-                <div class="map-point point-1">✦</div>
-                <div class="map-point point-2">◆</div>
-                <div class="map-point point-3">★</div>
-
-                <div class="map-label label-1">LUMEN TOWN</div>
-                <div class="map-label label-2">MARIS CITY</div>
-                <div class="map-label label-3">AURORA PEAK</div>
-            </div>
-        </section>
-
-
-        <!-- POKEDEX -->
-        <section class="section" id="pokedex">
-            <div class="section-heading">
-                <span class="eyebrow">ENCICLOPÉDIA</span>
-                <h2>Conhece a tua <span>Pokédex.</span></h2>
-                <p>
-                    Regista as tuas descobertas e acompanha a evolução da tua coleção.
-                </p>
-            </div>
-
-            <div class="pokedex-preview">
-
-                <div class="pokemon-placeholder">
-                    <div class="pokemon-glow"></div>
-                    <span>?</span>
-                </div>
-
-                <div class="pokedex-info">
-                    <span class="pokemon-number">#001</span>
-                    <h3>Primeira descoberta</h3>
-                    <p>
-                        A tua Pokédex acompanha automaticamente os Pokémon
-                        que encontras durante a aventura.
-                    </p>
-
-                    <div class="type-list">
-                        <span>TIPO</span>
-                        <span>RARIDADE</span>
-                        <span>EVOLUÇÃO</span>
-                    </div>
-
-                    <button class="secondary-btn">Abrir Pokédex</button>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- SHOP -->
-        <section class="section shop-section" id="loja">
-            <div class="section-heading">
-                <span class="eyebrow">POKÉMON AURORA</span>
-                <h2>Entra na <span>Loja.</span></h2>
-                <p>
-                    Personaliza a tua experiência com produtos e benefícios exclusivos.
-                </p>
-            </div>
-
-            <div class="shop-grid">
-
-                <article class="shop-card">
-                    <div class="shop-icon">💎</div>
-                    <span>VIP</span>
-                    <h3>VIP Aurora</h3>
-                    <p>Benefícios exclusivos para a tua aventura.</p>
-                    <button>Ver VIPs</button>
-                </article>
-
-                <article class="shop-card featured">
-                    <div class="popular">POPULAR</div>
-                    <div class="shop-icon">🎟️</div>
-                    <span>BATTLE PASS</span>
-                    <h3>Battle Pass</h3>
-                    <p>Desbloqueia recompensas enquanto jogas.</p>
-                    <button>Ver Battle Pass</button>
-                </article>
-
-                <article class="shop-card">
-                    <div class="shop-icon">💰</div>
-                    <span>MOEDA</span>
-                    <h3>Pokédollars</h3>
-                    <p>Usa a moeda do jogo para comprar itens.</p>
-                    <button>Ver Pokédollars</button>
-                </article>
-
-            </div>
-        </section>
-
-
-        <!-- CTA -->
-        <section class="cta">
-            <div>
-                <span class="eyebrow">ESTÁS PRONTO?</span>
-                <h2>A tua jornada começa agora.</h2>
-                <p>Explora. Combate. Torna-te Campeão.</p>
-            </div>
-
-            <button class="primary-btn">🎮 Jogar Pokémon Aurora</button>
-        </section>
-
-    </main>
-
-
-    <footer>
-        <div class="footer-logo">
-            ✦ POKÉMON <b>AURORA</b>
-        </div>
-
-        <p>Explora. Combate. Torna-te Campeão.</p>
-
-        <div class="footer-links">
-            <a href="#">Termos</a>
-            <a href="#">Privacidade</a>
-            <a href="#">Discord</a>
-        </div>
-
-        <small>© 2026 Pokémon Aurora. Todos os direitos reservados.</small>
-    </footer>
-
-
-    <script>
-        const menuButton = document.querySelector(".menu-btn");
-        const nav = document.querySelector(".nav-links");
-
-        menuButton.addEventListener("click", () => {
-            nav.classList.toggle("mobile-open");
-        });
-    </script>
-
-</body>
-    </html>
+    <main
