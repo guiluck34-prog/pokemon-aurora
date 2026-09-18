@@ -1,13 +1,3 @@
-/* =====================================================
-   POKÉMON AURORA
-   SCRIPT.JS
-===================================================== */
-
-
-/* =====================================================
-   CONFIGURAÇÃO
-===================================================== */
-
 const CONFIG = {
 
     vip: {
@@ -37,15 +27,9 @@ const CONFIG = {
 
 };
 
-
-/* =====================================================
-   TRADUÇÕES
-===================================================== */
-
 const translations = {
 
     pt: {
-
         nav_home: "Início",
         nav_game: "Jogo",
         nav_pokedex: "Pokédex",
@@ -170,16 +154,10 @@ const translations = {
             "Explora. Combate. Torna-te Campeão.",
 
         footer_disclaimer:
-            "Projeto independente e não afiliado à Nintendo, The Pokémon Company ou Game Freak.",
-
-        login:
-            "Entrar com Roblox"
-
+            "Projeto independente e não afiliado à Nintendo, The Pokémon Company ou Game Freak."
     },
 
-
     en: {
-
         nav_home: "Home",
         nav_game: "Game",
         nav_pokedex: "Pokédex",
@@ -304,30 +282,16 @@ const translations = {
             "Explore. Battle. Become Champion.",
 
         footer_disclaimer:
-            "Independent project and not affiliated with Nintendo, The Pokémon Company or Game Freak.",
-
-        login:
-            "Login with Roblox"
-
+            "Independent project and not affiliated with Nintendo, The Pokémon Company or Game Freak."
     }
 
 };
-
-
-/* =====================================================
-   ESTADO
-===================================================== */
 
 let currentLanguage =
     localStorage.getItem("auroraLanguage") || "pt";
 
 let currentCurrency =
     localStorage.getItem("auroraCurrency") || "EUR";
-
-
-/* =====================================================
-   ELEMENTOS
-===================================================== */
 
 const languageButton =
     document.getElementById("languageButton");
@@ -371,14 +335,7 @@ const modalClose =
 const modalAction =
     document.getElementById("modalAction");
 
-
-/* =====================================================
-   MODAL
-===================================================== */
-
 function openModal(title, text, actionText = "OK") {
-
-    if (!modal) return;
 
     modalTitle.textContent = title;
     modalText.textContent = text;
@@ -389,21 +346,12 @@ function openModal(title, text, actionText = "OK") {
     document.body.style.overflow = "hidden";
 }
 
-
 function closeModal() {
-
-    if (!modal) return;
 
     modal.classList.remove("active");
 
     document.body.style.overflow = "";
-
 }
-
-
-/* =====================================================
-   TRADUÇÃO
-===================================================== */
 
 function translatePage() {
 
@@ -424,68 +372,20 @@ function translatePage() {
 
         });
 
-
-    updateLanguageButton();
-
-}
-
-
-/* =====================================================
-   BOTÃO DE IDIOMA
-===================================================== */
-
-function updateLanguageButton() {
-
-    if (!languageButton) return;
-
-    if (currentLanguage === "pt") {
-
-        languageButton.textContent =
-            "🇵🇹 PT";
-
-    } else {
-
-        languageButton.textContent =
-            "🇬🇧 EN";
-
-    }
-
-}
-
-
-function toggleLanguage() {
-
-    currentLanguage =
+    languageButton.textContent =
         currentLanguage === "pt"
-            ? "en"
-            : "pt";
-
-    localStorage.setItem(
-        "auroraLanguage",
-        currentLanguage
-    );
-
-    translatePage();
-
+            ? "🇵🇹 PT"
+            : "🇬🇧 EN";
 }
-
-
-/* =====================================================
-   MOEDA
-===================================================== */
 
 function updateCurrencyButton() {
-
-    if (!currencyButton) return;
 
     const data =
         CONFIG.currency[currentCurrency];
 
     currencyButton.textContent =
         `${data.symbol} ${currentCurrency}`;
-
 }
-
 
 function formatPrice(eurPrice) {
 
@@ -504,9 +404,7 @@ function formatPrice(eurPrice) {
             maximumFractionDigits: 2
         }
     ).format(converted);
-
 }
-
 
 function updatePrices() {
 
@@ -515,14 +413,10 @@ function updatePrices() {
         .forEach(element => {
 
             const vip =
-                element.getAttribute(
-                    "data-vip-price"
-                );
+                element.getAttribute("data-vip-price");
 
             const basePrice =
                 CONFIG.vip[vip];
-
-            if (!basePrice) return;
 
             const currency =
                 CONFIG.currency[currentCurrency];
@@ -531,24 +425,32 @@ function updatePrices() {
                 `${currency.symbol}${formatPrice(basePrice)}`;
 
         });
-
 }
 
+function toggleLanguage() {
+
+    currentLanguage =
+        currentLanguage === "pt"
+            ? "en"
+            : "pt";
+
+    localStorage.setItem(
+        "auroraLanguage",
+        currentLanguage
+    );
+
+    translatePage();
+    updatePrices();
+}
 
 function toggleCurrency() {
 
     if (currentCurrency === "EUR") {
-
         currentCurrency = "BRL";
-
     } else if (currentCurrency === "BRL") {
-
         currentCurrency = "USD";
-
     } else {
-
         currentCurrency = "EUR";
-
     }
 
     localStorage.setItem(
@@ -558,20 +460,12 @@ function toggleCurrency() {
 
     updateCurrencyButton();
     updatePrices();
-
 }
-
-
-/* =====================================================
-   VIP
-===================================================== */
 
 function buyVIP(vipName) {
 
     const price =
         CONFIG.vip[vipName];
-
-    if (!price) return;
 
     const currency =
         CONFIG.currency[currentCurrency];
@@ -584,252 +478,121 @@ function buyVIP(vipName) {
         vipName.slice(1);
 
     openModal(
-
         `VIP ${vipLabel}`,
-
         currentLanguage === "pt"
-
             ? `O VIP ${vipLabel} custa ${currency.symbol}${converted}. O sistema de pagamento será ligado nesta etapa.`
-
             : `VIP ${vipLabel} costs ${currency.symbol}${converted}. The payment system will be connected at this stage.`,
-
         currentLanguage === "pt"
             ? "Continuar"
             : "Continue"
-
     );
-
 }
-
-
-/* =====================================================
-   ROBLOX LOGIN
-===================================================== */
 
 function loginRoblox() {
 
     openModal(
-
         currentLanguage === "pt"
             ? "Entrar com Roblox"
             : "Login with Roblox",
 
         currentLanguage === "pt"
-
             ? "O login oficial do Roblox será ligado aqui quando o sistema de autenticação estiver configurado."
-
             : "Official Roblox login will be connected here when the authentication system is configured.",
 
         currentLanguage === "pt"
             ? "Fechar"
             : "Close"
-
     );
-
 }
-
-
-/* =====================================================
-   JOGAR
-===================================================== */
 
 function playGame() {
 
     openModal(
+        "Pokémon Aurora",
 
         currentLanguage === "pt"
-            ? "Pokémon Aurora"
-            : "Pokémon Aurora",
-
-        currentLanguage === "pt"
-
             ? "O botão de jogar está pronto. Quando o jogo Roblox estiver publicado, este botão poderá abrir diretamente a experiência."
-
             : "The play button is ready. Once the Roblox game is published, this button can open the experience directly.",
 
         currentLanguage === "pt"
             ? "Entendido"
             : "Got it"
-
     );
-
 }
-
-
-/* =====================================================
-   POKÉDEX
-===================================================== */
 
 function openPokedex() {
 
     openModal(
+        "Pokédex",
 
         currentLanguage === "pt"
-            ? "Pokédex"
-            : "Pokédex",
-
-        currentLanguage === "pt"
-
             ? "A Pokédex está preparada. Os Pokémon e as informações serão adicionados aqui."
-
             : "The Pokédex is ready. Pokémon and their information will be added here.",
 
         "OK"
-
     );
-
 }
-
-
-/* =====================================================
-   BATTLE PASS
-===================================================== */
 
 function openBattlePass() {
 
     openModal(
-
         "Battle Pass",
 
         currentLanguage === "pt"
-
             ? "O Battle Pass está preparado para receber as temporadas, níveis, missões e recompensas."
-
             : "The Battle Pass is ready for seasons, levels, missions and rewards.",
 
         "OK"
-
     );
-
 }
-
-
-/* =====================================================
-   MENU MOBILE
-===================================================== */
 
 function toggleMobileMenu() {
-
-    if (!mainNav) return;
-
     mainNav.classList.toggle("active");
-
 }
-
-
-/* =====================================================
-   FECHAR MENU AO CLICAR
-===================================================== */
 
 function closeMobileMenu() {
-
-    if (!mainNav) return;
-
     mainNav.classList.remove("active");
-
 }
 
+languageButton.addEventListener(
+    "click",
+    toggleLanguage
+);
 
-/* =====================================================
-   EVENTOS
-===================================================== */
+currencyButton.addEventListener(
+    "click",
+    toggleCurrency
+);
 
+loginButton.addEventListener(
+    "click",
+    loginRoblox
+);
 
-/* IDIOMA */
+playButton.addEventListener(
+    "click",
+    playGame
+);
 
-if (languageButton) {
+playButtonBottom.addEventListener(
+    "click",
+    playGame
+);
 
-    languageButton.addEventListener(
-        "click",
-        toggleLanguage
-    );
+pokedexButton.addEventListener(
+    "click",
+    openPokedex
+);
 
-}
+battlePassButton.addEventListener(
+    "click",
+    openBattlePass
+);
 
-
-/* MOEDA */
-
-if (currencyButton) {
-
-    currencyButton.addEventListener(
-        "click",
-        toggleCurrency
-    );
-
-}
-
-
-/* LOGIN */
-
-if (loginButton) {
-
-    loginButton.addEventListener(
-        "click",
-        loginRoblox
-    );
-
-}
-
-
-/* JOGAR */
-
-if (playButton) {
-
-    playButton.addEventListener(
-        "click",
-        playGame
-    );
-
-}
-
-
-if (playButtonBottom) {
-
-    playButtonBottom.addEventListener(
-        "click",
-        playGame
-    );
-
-}
-
-
-/* POKÉDEX */
-
-if (pokedexButton) {
-
-    pokedexButton.addEventListener(
-        "click",
-        openPokedex
-    );
-
-}
-
-
-/* BATTLE PASS */
-
-if (battlePassButton) {
-
-    battlePassButton.addEventListener(
-        "click",
-        openBattlePass
-    );
-
-}
-
-
-/* MENU */
-
-if (mobileMenuButton) {
-
-    mobileMenuButton.addEventListener(
-        "click",
-        toggleMobileMenu
-    );
-
-}
-
-
-/* VIP */
+mobileMenuButton.addEventListener(
+    "click",
+    toggleMobileMenu
+);
 
 document
     .querySelectorAll(".vip-buy-button")
@@ -849,50 +612,26 @@ document
 
     });
 
+modalClose.addEventListener(
+    "click",
+    closeModal
+);
 
-/* FECHAR MODAL */
+modalAction.addEventListener(
+    "click",
+    closeModal
+);
 
-if (modalClose) {
+modal.addEventListener(
+    "click",
+    event => {
 
-    modalClose.addEventListener(
-        "click",
-        closeModal
-    );
-
-}
-
-
-/* BOTÃO DO MODAL */
-
-if (modalAction) {
-
-    modalAction.addEventListener(
-        "click",
-        closeModal
-    );
-
-}
-
-
-/* CLICAR FORA DO MODAL */
-
-if (modal) {
-
-    modal.addEventListener(
-        "click",
-        event => {
-
-            if (event.target === modal) {
-                closeModal();
-            }
-
+        if (event.target === modal) {
+            closeModal();
         }
-    );
 
-}
-
-
-/* LINKS DO MENU */
+    }
+);
 
 document
     .querySelectorAll("#mainNav a")
@@ -905,30 +644,18 @@ document
 
     });
 
-
-/* ESC */
-
 document.addEventListener(
     "keydown",
     event => {
 
         if (event.key === "Escape") {
-
             closeModal();
             closeMobileMenu();
-
         }
 
     }
 );
 
-
-/* =====================================================
-   INICIALIZAÇÃO
-===================================================== */
-
 translatePage();
-
 updateCurrencyButton();
-
 updatePrices();
