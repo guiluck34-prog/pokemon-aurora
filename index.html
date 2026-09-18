@@ -3,105 +3,508 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokémon Aurora</title>
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- =========================
-         NAVBAR
-    ========================== -->
+<header class="navbar">
 
-    <header class="navbar">
+    <a href="#home" class="logo">
+        <span>POKÉMON</span>
+        <strong>AURORA</strong>
+    </a>
 
-        <a href="#home" class="logo">
+    <nav id="mainNav">
+        <a href="#home" data-i18n="nav_home">Início</a>
+        <a href="#game" data-i18n="nav_game">Jogo</a>
+        <a href="#pokedex" data-i18n="nav_pokedex">Pokédex</a>
+        <a href="#shop" data-i18n="nav_shop">Loja</a>
+        <a href="#battlepass" data-i18n="nav_pass">Battle Pass</a>
+    </nav>
+
+    <div class="nav-actions">
+
+        <button id="languageButton" class="small-button" type="button">
+            🇵🇹 PT
+        </button>
+
+        <button id="currencyButton" class="small-button" type="button">
+            € EUR
+        </button>
+
+        <button id="loginButton" class="login-button" type="button">
+            Entrar com Roblox
+        </button>
+
+        <button
+            id="mobileMenuButton"
+            class="mobile-menu-button"
+            type="button"
+            aria-label="Abrir menu">
+            ☰
+        </button>
+
+    </div>
+
+</header>
+
+<main>
+
+<section id="home" class="hero">
+
+    <div class="hero-background"></div>
+
+    <div class="hero-content">
+
+        <span class="online" data-i18n="online">
+            ● SERVIDOR ONLINE
+        </span>
+
+        <h1>
             <span>POKÉMON</span>
-            <strong>AURORA</strong>
-        </a>
+            <br>
+            AURORA
+        </h1>
 
-        <nav id="mainNav">
+        <p data-i18n="hero_description">
+            Explora uma nova aventura, captura Pokémon,
+            enfrenta treinadores e torna-te Campeão.
+        </p>
 
-            <a href="#home" data-i18n="nav_home">
-                Início
-            </a>
-
-            <a href="#game" data-i18n="nav_game">
-                Jogo
-            </a>
-
-            <a href="#pokedex" data-i18n="nav_pokedex">
-                Pokédex
-            </a>
-
-            <a href="#shop" data-i18n="nav_shop">
-                Loja
-            </a>
-
-            <a href="#battlepass" data-i18n="nav_pass">
-                Battle Pass
-            </a>
-
-        </nav>
-
-        <div class="nav-actions">
-
-            <!-- IDIOMA -->
+        <div class="hero-buttons">
 
             <button
-                id="languageButton"
-                class="small-button"
+                id="playButton"
+                class="primary-button"
                 type="button"
-            >
-                🇵🇹 PT
+                data-i18n="play_now">
+                Jogar agora
             </button>
 
-            <!-- MOEDA -->
-
-            <button
-                id="currencyButton"
-                class="small-button"
-                type="button"
-            >
-                € EUR
-            </button>
-
-            <!-- ROBLOX -->
-
-            <button
-                id="loginButton"
-                class="login-button"
-                type="button"
-                data-i18n="login"
-            >
-                Entrar com Roblox
-            </button>
-
-            <!-- MENU MOBILE -->
-
-            <button
-                id="mobileMenuButton"
-                class="mobile-menu-button"
-                type="button"
-                aria-label="Abrir menu"
-            >
-                ☰
-            </button>
+            <a
+                href="#shop"
+                class="secondary-button"
+                data-i18n="go_shop">
+                Ver loja
+            </a>
 
         </div>
 
-    </header>
+        <div class="stats">
 
+            <div>
+                <strong>∞</strong>
+                <span data-i18n="players">Jogadores</span>
+            </div>
 
-    <!-- =========================
-         CONTEÚDO
-    ========================== -->
+            <div>
+                <strong>1000+</strong>
+                <span data-i18n="pokemon">Pokémon</span>
+            </div>
 
-    <main
+            <div>
+                <strong>8</strong>
+                <span data-i18n="gyms">Ginásios</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="game" class="section">
+
+    <div class="section-title">
+
+        <span data-i18n="game_label">
+            A EXPERIÊNCIA
+        </span>
+
+        <h2 data-i18n="game_title">
+            Uma nova aventura começa aqui.
+        </h2>
+
+        <p data-i18n="game_description">
+            Explora, captura Pokémon, enfrenta treinadores,
+            conquista os ginásios e prepara-te para a Liga.
+        </p>
+
+    </div>
+
+    <div class="features">
+
+        <article class="feature-card">
+
+            <div class="feature-icon">🌎</div>
+
+            <h3 data-i18n="feature_world_title">
+                Explora
+            </h3>
+
+            <p data-i18n="feature_world_text">
+                Descobre cidades, rotas, cavernas,
+                segredos e diferentes áreas do mundo.
+            </p>
+
+        </article>
+
+        <article class="feature-card">
+
+            <div class="feature-icon">⚔️</div>
+
+            <h3 data-i18n="feature_battle_title">
+                Combate
+            </h3>
+
+            <p data-i18n="feature_battle_text">
+                Enfrenta Pokémon selvagens, treinadores,
+                ginásios e outros jogadores.
+            </p>
+
+        </article>
+
+        <article class="feature-card">
+
+            <div class="feature-icon">🏆</div>
+
+            <h3 data-i18n="feature_champion_title">
+                Torna-te Campeão
+            </h3>
+
+            <p data-i18n="feature_champion_text">
+                Conquista os emblemas e enfrenta os maiores
+                desafios da aventura.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+<section id="pokedex" class="section dark-section">
+
+    <div class="section-title">
+
+        <span data-i18n="pokedex_label">POKÉDEX</span>
+
+        <h2 data-i18n="pokedex_title">
+            A tua coleção.
+        </h2>
+
+        <p data-i18n="pokedex_description">
+            Consulta informações sobre os Pokémon disponíveis
+            no jogo.
+        </p>
+
+    </div>
+
+    <div class="center-button">
+
+        <button
+            id="pokedexButton"
+            class="primary-button"
+            type="button"
+            data-i18n="open_pokedex">
+            Abrir Pokédex
+        </button>
+
+    </div>
+
+</section>
+
+<section id="shop" class="section shop-section">
+
+    <div class="section-title">
+
+        <span data-i18n="shop_label">LOJA</span>
+
+        <h2 data-i18n="shop_title">
+            Escolhe o teu VIP.
+        </h2>
+
+        <p data-i18n="shop_description">
+            Desbloqueia benefícios exclusivos dentro
+            de Pokémon Aurora.
+        </p>
+
+    </div>
+
+    <div class="vip-grid">
+
+        <article class="vip-card">
+
+            <div class="vip-icon">🥉</div>
+
+            <h3>VIP BRONZE</h3>
+
+            <div class="vip-price" data-vip-price="bronze">
+                €2.99
+            </div>
+
+            <p data-i18n="bronze_description">
+                Benefícios básicos para começar.
+            </p>
+
+            <ul>
+                <li data-i18n="bronze_1">Tag VIP</li>
+                <li data-i18n="bronze_2">Recompensas exclusivas</li>
+                <li data-i18n="bronze_3">Kit Bronze</li>
+            </ul>
+
+            <button
+                class="vip-buy-button"
+                data-vip="bronze"
+                type="button"
+                data-i18n="buy">
+                Comprar
+            </button>
+
+        </article>
+
+        <article class="vip-card">
+
+            <div class="vip-icon">🥈</div>
+
+            <h3>VIP SILVER</h3>
+
+            <div class="vip-price" data-vip-price="silver">
+                €5.99
+            </div>
+
+            <p data-i18n="silver_description">
+                Mais vantagens e recompensas.
+            </p>
+
+            <ul>
+                <li data-i18n="silver_1">Tudo do Bronze</li>
+                <li data-i18n="silver_2">Kit Silver</li>
+                <li data-i18n="silver_3">Bónus de XP</li>
+            </ul>
+
+            <button
+                class="vip-buy-button"
+                data-vip="silver"
+                type="button"
+                data-i18n="buy">
+                Comprar
+            </button>
+
+        </article>
+
+        <article class="vip-card">
+
+            <div class="vip-icon">🥇</div>
+
+            <h3>VIP GOLD</h3>
+
+            <div class="vip-price" data-vip-price="gold">
+                €9.99
+            </div>
+
+            <p data-i18n="gold_description">
+                Um pacote completo para jogadores.
+            </p>
+
+            <ul>
+                <li data-i18n="gold_1">Tudo do Silver</li>
+                <li data-i18n="gold_2">Kit Gold</li>
+                <li data-i18n="gold_3">Bónus de dinheiro</li>
+            </ul>
+
+            <button
+                class="vip-buy-button"
+                data-vip="gold"
+                type="button"
+                data-i18n="buy">
+                Comprar
+            </button>
+
+        </article>
+
+        <article class="vip-card">
+
+            <div class="vip-icon">💎</div>
+
+            <h3>VIP DIAMOND</h3>
+
+            <div class="vip-price" data-vip-price="diamond">
+                €19.99
+            </div>
+
+            <p data-i18n="diamond_description">
+                Benefícios avançados e exclusivos.
+            </p>
+
+            <ul>
+                <li data-i18n="diamond_1">Tudo do Gold</li>
+                <li data-i18n="diamond_2">Kit Diamond</li>
+                <li data-i18n="diamond_3">Bónus especiais</li>
+            </ul>
+
+            <button
+                class="vip-buy-button"
+                data-vip="diamond"
+                type="button"
+                data-i18n="buy">
+                Comprar
+            </button>
+
+        </article>
+
+        <article class="vip-card aurora-vip">
+
+            <div class="aurora-badge" data-i18n="aurora_badge">
+                ✦ VIP MÁXIMO ✦
+            </div>
+
+            <div class="vip-icon aurora-icon">✨</div>
+
+            <h3>VIP AURORA</h3>
+
+            <div class="vip-price" data-vip-price="aurora">
+                €29.99
+            </div>
+
+            <p data-i18n="aurora_description">
+                O maior nível VIP de Pokémon Aurora,
+                com benefícios exclusivos.
+            </p>
+
+            <ul>
+                <li data-i18n="aurora_1">Tudo do Diamond</li>
+                <li data-i18n="aurora_2">Kit exclusivo Aurora</li>
+                <li data-i18n="aurora_3">Battle Pass Premium</li>
+                <li data-i18n="aurora_4">Bónus exclusivos</li>
+                <li data-i18n="aurora_5">Recompensas especiais</li>
+            </ul>
+
+            <button
+                class="vip-buy-button aurora-button"
+                data-vip="aurora"
+                type="button"
+                data-i18n="buy">
+                Comprar
+            </button>
+
+        </article>
+
+    </div>
+
+</section>
+
+<section id="battlepass" class="battle-section">
+
+    <div class="battle-content">
+
+        <span data-i18n="battle_label">
+            BATTLE PASS
+        </span>
+
+        <h2 data-i18n="battle_title">
+            Sobe de nível.
+        </h2>
+
+        <p data-i18n="battle_description">
+            Ganha XP ao jogar, completa missões e desbloqueia
+            recompensas durante a temporada.
+        </p>
+
+        <button
+            id="battlePassButton"
+            class="primary-button"
+            type="button"
+            data-i18n="open_battlepass">
+            Ver Battle Pass
+        </button>
+
+    </div>
+
+    <div class="level-number">100</div>
+
+</section>
+
+<section class="cta">
+
+    <h2 data-i18n="cta_title">
+        A tua aventura começa agora.
+    </h2>
+
+    <p data-i18n="cta_description">
+        Prepara a tua equipa e entra no mundo
+        de Pokémon Aurora.
+    </p>
+
+    <button
+        id="playButtonBottom"
+        class="primary-button"
+        type="button"
+        data-i18n="play_now">
+        Jogar agora
+    </button>
+
+</section>
+
+</main>
+
+<footer>
+
+    <div>
+        <strong>Pokémon Aurora</strong>
+
+        <p data-i18n="footer_text">
+            Explora. Combate. Torna-te Campeão.
+        </p>
+    </div>
+
+    <p>© 2026 Pokémon Aurora</p>
+
+    <div class="footer-note">
+
+        <p data-i18n="footer_disclaimer">
+            Projeto independente e não afiliado à Nintendo,
+            The Pokémon Company ou Game Freak.
+        </p>
+
+    </div>
+
+</footer>
+
+<div id="modal" class="modal">
+
+    <div class="modal-box">
+
+        <button
+            id="modalClose"
+            class="modal-close"
+            type="button">
+            ×
+        </button>
+
+        <h2 id="modalTitle">
+            Pokémon Aurora
+        </h2>
+
+        <p id="modalText">
+            Bem-vindo ao Pokémon Aurora.
+        </p>
+
+        <button
+            id="modalAction"
+            class="primary-button"
+            type="button">
+            OK
+        </button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+    </html>
